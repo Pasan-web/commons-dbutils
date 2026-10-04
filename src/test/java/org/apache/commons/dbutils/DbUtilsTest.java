@@ -371,6 +371,7 @@ class DbUtilsTest {
     @Test
     void testRollbackQuietlyWithException() throws Exception {
         final Connection mockConnection = mock(Connection.class);
+        // modify secondly
         doThrow(SQLException.class).when(mockConnection).rollback();
         DbUtils.rollbackQuietly(mockConnection);
         verify(mockConnection).rollback();
